@@ -297,7 +297,7 @@ with tab2:
         if 'df_deseq' in st.session_state and 'mydds' in st.session_state:
             df_deseq = st.session_state.df_deseq
             mydds = st.session_state.mydds
-
+            col1,col2=st.columns(2)
             if option == "Volcano Plot":
                 st.write("Your Volcano Plot")
                 padj_threshold = 0.05
@@ -320,8 +320,8 @@ with tab2:
                 ax.axvline(x=-1, color='b', linestyle='--', linewidth=1.5)
                 ax.set_xlim(-6, 6)
                 ax.set_ylim(0, 20)
-
-                st.pyplot(fig)
+                with col1:
+                    st.pyplot(fig)
 
             elif option == "Heatmap":
                 st.write("Your Heatmap")
